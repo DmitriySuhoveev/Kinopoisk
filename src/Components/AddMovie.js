@@ -1,5 +1,6 @@
 import React, {useState, useContext} from 'react'
 import {MovieContext} from './MovieContext'
+import {connect} from 'react-redux'
 import '../styles/AddMovie.css'
 
 const AddMovie = () =>{
@@ -20,19 +21,26 @@ const AddMovie = () =>{
     }
 
     const addMovie = e =>{
-        e.preventDefault();
-        setMovies(prevMovies => [...prevMovies, {name: name, price: price, rank:rank, id: id}])
+        if(name === '' || price === '' || rank === ''){
+            e.preventDefault();
+            alert('Заполните поля');
+        } else{
+            e.preventDefault();
+            setMovies(prevMovies => [...prevMovies, {name: name, price: price, rank:rank, id: id}])
+            
+        }
+
     }
 
 
     return(
         <form className="form" onSubmit={addMovie}>
         <p>Название фильма</p>
-            <input type ="text" name = "name" autoComplete = "off" value ={name} onChange={updateName}/>
+            <input type ="text" name = "name" autoComplete = "off" value = {name} onChange={updateName}/>
             <p>Цена</p>
-            <input type ="text" name = "price" autoComplete = "off" value = {price} onChange={updatePrice}/>
+            <input type ="number" name = "price" autoComplete = "off"  value = {price} onChange={updatePrice}/>
             <p>Рейтинг</p>
-            <input type = "text" name = "rank" autoComplete = "off" value = {rank} onChange = {updateRank}/>
+            <input type = "number" name = "rank" autoComplete = "off" min="0" max ="10"  value = {rank} onChange = {updateRank}/>
             <button className = 'addBtn'>Добавить</button>
         </form>
     )

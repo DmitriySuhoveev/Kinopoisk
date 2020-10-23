@@ -1,20 +1,14 @@
 import React from 'react'
 import '../styles/Movie.css'
+import {connect} from 'react-redux'
 
 
-const Movie = ({name, price, rank}) =>{
-   
-
+const Movie = ({name, price, rank, id}) =>{
 
    
     return(
     <div className = 'movieDiv'>
-    <ul className = 'rectangle'>
-        <li>{name}</li>
-        <li>{price}</li>
-        <li>{rank}</li>
 
-    </ul>
     </div>
     )
 }
