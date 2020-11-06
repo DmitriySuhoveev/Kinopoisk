@@ -1,8 +1,7 @@
 import React, {useContext} from 'react'
-import {MovieContext} from './MovieContext'
+import {MovieContext} from '../MovieContext/MovieContext'
 import {Link, useHistory} from 'react-router-dom'
-import '../styles/Nav.css'
-import {connect} from 'react-redux'   
+import './Nav.css'
 
 
 const Nav = ({name, price, rank, id}) =>{

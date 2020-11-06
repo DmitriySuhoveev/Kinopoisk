@@ -1,7 +1,6 @@
 import React, {useState} from 'react'
 import {useHistory} from 'react-router-dom'
-import {connect} from 'react-redux'
-import '../styles/Autorization.css'
+import './Autorization.css'
 const Autorization = () =>{
     const history = useHistory();
     const [data, setData]= useState([

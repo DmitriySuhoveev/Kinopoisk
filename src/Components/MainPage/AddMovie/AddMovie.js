@@ -1,7 +1,6 @@
 import React, {useState, useContext} from 'react'
-import {MovieContext} from './MovieContext'
-import {connect} from 'react-redux'
-import '../styles/AddMovie.css'
+import {MovieContext} from '../MovieContext/MovieContext'
+import './AddMovie.css'
 
 const AddMovie = () =>{
     const [name, setName] = useState('');
