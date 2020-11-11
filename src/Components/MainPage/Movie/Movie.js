@@ -12,8 +12,11 @@ const Movie = () =>{
 
     const [movies, setMovies] = useContext (MovieContext)
     const handleRemove = (id) => {
-        const newList = movies.filter((item) => item.id !==id)
-        setMovies(newList);
+        const idTodDel = movies.findIndex(item => item.id === id);
+        let beforeDelItem = movies.slice(0, idTodDel);
+        let afterDelItem = movies.slice(idTodDel + 1);
+        let newData = [...beforeDelItem, ...afterDelItem];
+        setMovies(newData);
     }
 
     const [expanded, setExpanded] = useState('panel1');
@@ -63,22 +66,22 @@ const Movie = () =>{
     <div className = 'movieDiv'>
     <ul className = 'rectangle'>
         {movies.map((item) => (
-            <div className = 'movieList'>
-        <li key = {item.id}>
-        <li>Название: {item.name}</li>
-        <li>Бюджет: {item.price}</li>
-        <li>Рейтинг: {item.rank}</li>
-        <Accordion square expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
-        <AccordionSummary aria-controls="panel1d-content" id="panel1d-header">
-          <Typography>Описание: {item.name}</Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          <Typography>
-          {item.description}
-          </Typography>
-        </AccordionDetails>
-      </Accordion>    
-        </li>
+            <div  className = 'movieList'>
+              <li key = {item.id} ></li>
+              <li>Название: {item.name}</li>
+              <li>Бюджет: {item.price}$</li>
+              <li>Рейтинг: {item.rank}</li>
+                <Accordion square expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
+                  <AccordionSummary aria-controls="panel1d-content" id="panel1d-header">
+                    <Typography>Описание: {item.name}</Typography>
+                  </AccordionSummary>
+                  <AccordionDetails>
+                    <Typography>
+                      {item.description}
+                    </Typography>
+                  </AccordionDetails>
+                </Accordion>    
+        
         <button className = 'deleteBtn' onClick={() => handleRemove(item.id)}>Remove</button>
         </div>
     ))}

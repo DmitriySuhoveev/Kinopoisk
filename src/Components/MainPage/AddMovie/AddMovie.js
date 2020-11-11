@@ -6,6 +6,7 @@ const AddMovie = () =>{
     const [name, setName] = useState('');
     const [price, setPrice] = useState('');
     const [rank, setRank] = useState('');
+    const [description, setDescription] = useState('');
     const [id, setId] = useState ('');
     const [movies, setMovies] = useContext(MovieContext)
 
@@ -18,14 +19,17 @@ const AddMovie = () =>{
     const updateRank = (e) =>{
         setRank (e.target.value)
     }
+    const updateDescription = (e) =>{
+        setDescription(e.target.value)
+    }
 
     const addMovie = e =>{
-        if(name === '' || price === '' || rank === ''){
+        if(name === '' || price === '' || rank === '' || description === ''){
             e.preventDefault();
             alert('Заполните поля');
         } else{
             e.preventDefault();
-            setMovies(prevMovies => [...prevMovies, {name: name, price: price, rank:rank, id: id}])
+            setMovies(prevMovies => [...prevMovies, {name: name, price: price, rank:rank, description:description, id: id}])
             
         }
 
@@ -36,10 +40,12 @@ const AddMovie = () =>{
         <form className="form" onSubmit={addMovie}>
         <p>Название фильма</p>
             <input type ="text" name = "name" autoComplete = "off" value = {name} onChange={updateName}/>
-            <p>Цена</p>
-            <input type ="number" name = "price" autoComplete = "off"  value = {price} onChange={updatePrice}/>
+            <p>Бюджет($)</p>
+            <input type ="number" name = "price" autoComplete = "off" min ="0"  value = {price} onChange={updatePrice}/>
             <p>Рейтинг</p>
             <input type = "number" name = "rank" autoComplete = "off" min="0" max ="10"  value = {rank} onChange = {updateRank}/>
+            <p>Описание</p>
+            <input type = "text" name = "description" autoComplete = "off" maxLength="600" value = {description} onChange={updateDescription}/>
             <button className = 'addBtn'>Добавить</button>
         </form>
     )
