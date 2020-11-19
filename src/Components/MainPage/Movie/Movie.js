@@ -18,12 +18,11 @@ const Movie = () =>{
     <div className = 'movieDiv'>
     <ul className = 'rectangle'>
         {movies.map((item) => (
-            <div  className = 'movieList'>
-              <li key = {item.id} ></li>
+            <div key = {item.id} className = 'movieList'>
               <li>Название: {item.name}</li>
               <li>Бюджет: {item.price}$</li>
               <li>Рейтинг: {item.rank}</li>
-              <AccordionMovie/>
+              <AccordionMovie name = {item.name} description = {item.description}/>
         <button className = 'deleteBtn' onClick={() => handleRemove(item.id)}>Remove</button>
         </div>
     ))}
