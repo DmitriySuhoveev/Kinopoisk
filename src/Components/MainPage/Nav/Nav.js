@@ -1,22 +1,27 @@
 import React, {useContext} from 'react'
+
 import {MovieContext} from '../MovieContext/MovieContext'
-import {Link, useHistory} from 'react-router-dom'
+import {useHistory} from 'react-router-dom'
 import './Nav.css'
 
 
 const Nav = ({name, price, rank, id}) =>{
     const [movies, setMovies] = useContext(MovieContext)
     const history = useHistory();
-    const handleClick = () => {
+    const handleExit = () => {
         history.push("/");
       }
+    const searchFilm =  () =>{
+      history.push("/MovieSearch")
+    } 
 
 
     return(
     <div className = 'Nav'>
     <p>Список фильмов</p>
     <p>Количество фильмов в списке: {movies.length}</p>
-    <button className = 'exitBtn' onClick = {handleClick}>Выход</button>
+    <button className = 'exitBtn' onClick = {searchFilm}>Поиск Фильма</button>
+    <button className = 'exitBtn' onClick = {handleExit}>Выход</button>
     </div>
     )
 }

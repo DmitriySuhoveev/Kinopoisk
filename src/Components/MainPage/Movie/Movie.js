@@ -6,6 +6,7 @@ import AccordionMovie from '../AccordionMovie/AccordionMovie'
 const Movie = () =>{
 
     const [movies, setMovies] = useContext (MovieContext)
+    const [AccordName, setAccordName] = useState('')
     const handleRemove = (id) => {
         const idTodDel = movies.findIndex(item => item.id === id);
         let beforeDelItem = movies.slice(0, idTodDel);

@@ -21,8 +21,6 @@ const Autorization = () =>{
     const newData = Object.assign({}, data)
     newData[e.target.name] = e.target.value
     setData(newData);
-
-    console.log(data)
     }
 
 
@@ -41,15 +39,15 @@ const Autorization = () =>{
   
     return(
       <form className = "form-3" onSubmit = {onSumbit}>
-      <p class = "clearfix">
-        <label for = 'email'>Email:</label>
+      <p className = "clearfix">
+        <label htmlFor = 'email'>Email:</label>
         <input type = 'text' name = 'email' placeholder ="Email" autoComplete= 'off' onChange ={onChange} />
         </p>
         <p className = "clearfix">
-        <label for ="password">Password:</label>
+        <label htmlFor ="password">Password:</label>
         <input type = 'password' name = 'password' placeholder ="Password"  autoComplete= 'off' onChange ={onChange}/>
         </p>
-        <p class = "clearfix">
+        <p className = "clearfix">
         <button className = 'submitBtn' type ="submit">Sumbit</button>
         </p>
       </form>

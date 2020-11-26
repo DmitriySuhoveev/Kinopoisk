@@ -5,6 +5,7 @@ import AddMovie from './Components/MainPage/AddMovie/AddMovie'
 import {MovieProvider} from './Components/MainPage/MovieContext/MovieContext'
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 import './App.css'
+import MovieSearch from './Components/MainPage/MovieSearch/MovieSearch';
 
 function App() {
   
@@ -12,13 +13,13 @@ function App() {
     <Router>
     <MovieProvider>
       <div>
-      <Switch>
-        <Route path exact = '/' component = {Autorization}/>
+        <Switch>
+          <Route path = '/' exact = {true} component = {Autorization}/>
+          <Route path = '/MovieSearch' component = {MovieSearch}/>
           <Route path = '/Main' component = {AddMovie}>
             <Main/>
           </Route>
-        </Switch>
-       
+        </Switch> 
       </div>
     </MovieProvider>
     </Router>

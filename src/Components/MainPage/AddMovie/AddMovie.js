@@ -3,12 +3,12 @@ import {MovieContext} from '../MovieContext/MovieContext'
 import './AddMovie.css'
 
 const AddMovie = () =>{
+    const [movies, setMovies] = useContext(MovieContext)
     const [name, setName] = useState('');
     const [price, setPrice] = useState('');
     const [rank, setRank] = useState('');
     const [description, setDescription] = useState('');
     const [id, setId] = useState ('');
-    const [movies, setMovies] = useContext(MovieContext)
 
     const updateName = (e) =>{
         setName(e.target.value)
@@ -34,7 +34,6 @@ const AddMovie = () =>{
         }
 
     }
-
 
     return(
         <form className="form" onSubmit={addMovie}>
