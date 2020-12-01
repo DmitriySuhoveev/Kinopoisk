@@ -8,17 +8,16 @@ const MovieSearch = () =>{
     const API_KEY = 'f55568f9';
     
     useEffect(() => {
-        
     }, [])
 
     const getMovies = async (e) => {
-        e.preventDefault()
+        e.preventDefault();
         const response = await fetch(
             `http://www.omdbapi.com/?apikey=f55568f9&t=${title}&y=${year}&plot=full`
         );
         const data = await response.json();
-        console.log(data)
         setFilms(data);
+        console.log(data);
     }
 
     const onTitleChange = (e) =>{
@@ -32,14 +31,24 @@ const MovieSearch = () =>{
 
     return(
         <div>
-        <form onSubmit={getMovies}>
-            <h1>MovieSearch Component</h1>
+        <form className = "movieSearchForm" onSubmit = {getMovies}>
+            <h1>Search the Film</h1>
             <p>Title</p>
-            <input type = 'text' name = 'title' onChange={onTitleChange}/>
+            <input type = 'text' name = 'title' value ={title} onChange={onTitleChange}/>
             <p>Year</p>
-            <input type = 'number' name = 'year' onChange={onYearChange}/>
+            <input type = 'number' name = 'year' value ={year} onChange={onYearChange}/>
             <button>Search</button>
         </form>
+            <MovieSearchContent 
+            Country = {films.Country} 
+            Actors = {films.Actors} 
+            Plot = {films.Plot}
+            Poster = {films.Poster}
+            Year = {films.Year}
+            Genre = {films.Genre} 
+            Awards = {films.Awards}
+            Runtime = {films.Runtime}   
+            />
         </div>
     )
 }
