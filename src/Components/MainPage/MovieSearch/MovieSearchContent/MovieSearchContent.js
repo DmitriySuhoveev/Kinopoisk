@@ -5,7 +5,7 @@ const MovieSearchContent = ({Country, Actors, Plot, Poster, Year, Genre, Awards,
     return(
         <div className = "searchContentDiv">
             <div className = "picDiv"><img src = {Poster} alt = ''/></div>
-            <ul>
+            <ul className = "searchContentUl">
                 <li>Год производства: {Year}</li>
                 <li>Страна производства: {Country}</li>
                 <li>Жанр: {Genre}</li>

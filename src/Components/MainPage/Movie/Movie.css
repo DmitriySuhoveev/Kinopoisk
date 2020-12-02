@@ -1,8 +1,10 @@
 .movieDiv{
     min-width: 30vh;
+
 }
 .movieList{
     padding: 0px 30px 0px 30px ;
+    width: 29%;
 }
 
 
@@ -11,6 +13,8 @@
     list-style: none; 
     font: 18px "Trebuchet MS", "Lucida Sans";
     text-shadow: 0 1px 0 rgba(255,255,255,.5);
+    display: flex;
+    flex-wrap: wrap;
 }
 
 li{
@@ -24,8 +28,6 @@ li{
 }
 
 .deleteBtn{
-
-    width: 10%;
     margin-top: 2vh;
     border-radius: 10px;
     background-color: rgb(37, 46, 206);
@@ -50,4 +52,10 @@ li{
 
     text-align: left;
     
+}
+
+.poster{
+    width: 160px;
+    height: 250px;
+    margin-top: 20px;
 }

@@ -20,9 +20,10 @@ const Movie = () =>{
     <ul className = 'rectangle'>
         {movies.map((item) => (
             <div key = {item.id} className = 'movieList'>
+              <div><img  className = "poster" src={item.img} alt =''></img></div>
               <li>Название: {item.name}</li>
-              <li>Бюджет: {item.price}$</li>
-              <li>Рейтинг: {item.rank}</li>
+              <li>Время сеанса: {item.time}</li>
+              <li>Дата проката: {item.date}</li>
               <AccordionMovie name = {item.name} description = {item.description}/>
         <button className = 'deleteBtn' onClick={() => handleRemove(item.id)}>Remove</button>
         </div>
