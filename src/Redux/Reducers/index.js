@@ -1,7 +1,8 @@
-import movieContextReducer from './reducers';
+import {authorizationReducer} from './isLogged';
 import {combineReducers} from 'redux';
 
-const Reducer = combineReducers({
-    movieContextReducer
+const allReducers = combineReducers({
+    authorizationReducer
 })
-export default Reducer;
+
+export default allReducers;

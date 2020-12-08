@@ -1,20 +1,22 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import {useHistory} from 'react-router-dom'
+import { setUser, logOut } from '../../Redux/Actions'
+import { useSelector, useDispatch } from 'react-redux'
 import './Autorization.css'
 const Autorization = () =>{
     const history = useHistory();
+    const dispatch = useDispatch();
+    const authorizationReducer = useSelector(state => state.authorizationReducer);
     const [data, setData]= useState([
       {
         email: '',
         password: '',
-        redirect: false
       }
     ]);
 
     const handleClick = () => {
         history.push("/Main");
       }
-    
     
     const onChange = (e) =>{
     e.preventDefault()
@@ -23,19 +25,17 @@ const Autorization = () =>{
     setData(newData);
     }
 
-
     const onSumbit = (e) =>{
       e.preventDefault()
-      if (data.email === 'Dima' && data.password === 'Suhoveev'){
-        setData(data.redirect = true)
+      if (data.email === 'Dima' && data.password === 'Suhoveev' && !authorizationReducer.loggedIn){
+        dispatch(logOut())
         handleClick();
       }
       else{
+        dispatch(setUser())
           alert("Введите правильные данные")
       }
       }
-
-    
   
     return(
       <form className = "form-3" onSubmit = {onSumbit}>

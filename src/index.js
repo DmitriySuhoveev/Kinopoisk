@@ -5,13 +5,16 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { createStore } from 'redux';
 import {Provider} from 'react-redux';
-import movieContextReducer from './Redux/Reducers/reducers'
+import allReducers from './Redux/Reducers/index';
 
-const store = createStore(movieContextReducer)
+const store = createStore(
+  allReducers,
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+  );
 
 ReactDOM.render(
     <Provider store = {store}>
-    <App />
+      <App />
     </Provider>,
   document.getElementById('root')
 );
