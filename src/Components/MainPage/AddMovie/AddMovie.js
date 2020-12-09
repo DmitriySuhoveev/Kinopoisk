@@ -1,14 +1,17 @@
-import React, {useState, useContext} from 'react'
-import {MovieContext} from '../MovieContext/MovieContext'
-import './AddMovie.css'
+import React, {useState} from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import {movieAppend} from '../../../Redux/Actions';
+import './AddMovie.css';
 
 const AddMovie = () =>{
-    const [movies, setMovies] = useContext(MovieContext)
+    const moviesManage = useSelector(state => state.moviesManage)
+    const dispatch = useDispatch();
+    const [img] = useState('');
     const [name, setName] = useState('');
     const [time, setTime] = useState('');
     const [date, setDate] = useState('');
     const [description, setDescription] = useState('');
-    const [id, setId] = useState ('');
+    const [id] = useState ('');
 
     const updateName = (e) =>{
         setName(e.target.value)
@@ -29,10 +32,8 @@ const AddMovie = () =>{
             alert('Заполните поля');
         } else{
             e.preventDefault();
-            setMovies(prevMovies => [...prevMovies, {name: name, time: time, date: date, description: description, id: id}])
-            
+            dispatch(movieAppend(img, name, time, date, description, id));
         }
-
     }
 
     return(

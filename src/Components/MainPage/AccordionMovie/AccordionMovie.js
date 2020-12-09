@@ -1,5 +1,4 @@
-import React, {useState, useContext} from 'react'
-import {MovieContext} from '../MovieContext/MovieContext'
+import React from 'react'
 import { Accordion, AccordionItem } from 'react-light-accordion';
 import 'react-light-accordion/demo/css/index.css';
 

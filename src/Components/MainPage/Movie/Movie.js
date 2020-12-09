@@ -1,24 +1,19 @@
-import React, {useState, useContext} from 'react'
+import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import {deleteItem} from '../../../Redux/Actions';
+import AccordionMovie from '../AccordionMovie/AccordionMovie';
 import './Movie.css'
-import {MovieContext} from '../MovieContext/MovieContext'
-import AccordionMovie from '../AccordionMovie/AccordionMovie'
-
 const Movie = () =>{
-
-    const [movies, setMovies] = useContext (MovieContext)
-    const [AccordName, setAccordName] = useState('')
+    const dispatch = useDispatch();
+    const moviesManage = useSelector(state => state.moviesManage)
     const handleRemove = (id) => {
-        const idTodDel = movies.findIndex(item => item.id === id);
-        let beforeDelItem = movies.slice(0, idTodDel);
-        let afterDelItem = movies.slice(idTodDel + 1);
-        let newData = [...beforeDelItem, ...afterDelItem];
-        setMovies(newData);
+        dispatch(deleteItem(id))
     }
 
     return(
     <div className = 'movieDiv'>
     <ul className = 'rectangle'>
-        {movies.map((item) => (
+        {moviesManage.map((item) => (
             <div key = {item.id} className = 'movieList'>
               <div><img  className = "poster" src={item.img} alt =''></img></div>
               <li>Название: {item.name}</li>

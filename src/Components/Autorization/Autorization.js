@@ -1,8 +1,9 @@
-import React, {useState, useEffect} from 'react'
-import {useHistory} from 'react-router-dom'
-import { setUser, logOut } from '../../Redux/Actions'
-import { useSelector, useDispatch } from 'react-redux'
-import './Autorization.css'
+import React, {useState} from 'react';
+import {useHistory} from 'react-router-dom';
+import { setUser, logOut } from '../../Redux/Actions';
+import { useSelector, useDispatch } from 'react-redux';
+import './Autorization.css';
+
 const Autorization = () =>{
     const history = useHistory();
     const dispatch = useDispatch();
@@ -54,4 +55,4 @@ const Autorization = () =>{
     )
     }
 
-export default Autorization;
+export default Autorization

@@ -1,8 +1,9 @@
-export const authorizationReducer = (state = {loggedIn: false}, action) => {
+export const authorizationReducer = (state = {loggedIn:false}, action) => {
     switch(action.type){
         case "SET_USER":
             return {
-                ...state
+                ...state, 
+                loggedIn: false
             }
 
             case "LOG_OUT":

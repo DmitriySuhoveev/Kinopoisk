@@ -1,12 +1,11 @@
-import React, {useContext} from 'react'
+import React from 'react';
+import { useSelector } from 'react-redux';
+import {useHistory} from 'react-router-dom';
+import './Nav.css';
 
-import {MovieContext} from '../MovieContext/MovieContext'
-import {useHistory} from 'react-router-dom'
-import './Nav.css'
 
-
-const Nav = ({name, price, rank, id}) =>{
-    const [movies, setMovies] = useContext(MovieContext)
+const Nav = () =>{
+    const moviesManage = useSelector(state => state.moviesManage)
     const history = useHistory();
     const handleExit = () => {
         history.push("/");
@@ -18,11 +17,10 @@ const Nav = ({name, price, rank, id}) =>{
       history.push('/TicketOrder');
     }
 
-
     return(
     <div className = 'Nav'>
     <p>Список фильмов</p>
-    <p>Количество фильмов в прокате: {movies.length}</p>
+    <p>Количество фильмов в прокате: {moviesManage.length}</p>
     <button className = 'exitBtn' onClick = {ticketOrder}>Заказать билет</button>
     <button className = 'exitBtn' onClick = {searchFilm}>Поиск Фильма</button>
     <button className = 'exitBtn' onClick = {handleExit}>Выход</button>
