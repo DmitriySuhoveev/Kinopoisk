@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import {useHistory} from 'react-router-dom';
 import { setUser, logOut } from '../../Redux/Actions';
 import { useSelector, useDispatch } from 'react-redux';
+import fire from '../../utilities/firebaseConfig'
 import './Autorization.css';
 
 const Autorization = () =>{
@@ -26,19 +27,36 @@ const Autorization = () =>{
     setData(newData);
     }
 
-    const onSumbit = (e) =>{
+    const signUp = (e) =>{
       e.preventDefault()
-      if (data.email === 'Dima' && data.password === 'Suhoveev' && !authorizationReducer.loggedIn){
+      fire.auth().createUserWithEmailAndPassword(data.email, data.password)
+      .then((u) => {
+        console.log('Successfully Signed Up');
+        dispatch(logOut());
+        handleClick();
+      })
+      .catch((err) => {
+        console.log('Error: ' + err.toString());
+        dispatch(setUser())
+      })
+    }
+
+    const onSumbit = (e) =>{
+     e.preventDefault()
+      fire.auth().signInWithEmailAndPassword(data.email, data.password)
+      .then((u) => {
+        console.log('Successfully Logged In');
         dispatch(logOut())
         handleClick();
-      }
-      else{
+      })
+      .catch((err) => {
+        console.log('Error: ' + err.toString());
         dispatch(setUser())
-          alert("Введите правильные данные")
-      }
+      })
       }
   
     return(
+    <div>
       <form className = "form-3" onSubmit = {onSumbit}>
       <p className = "clearfix">
         <label htmlFor = 'email'>Email:</label>
@@ -49,9 +67,12 @@ const Autorization = () =>{
         <input type = 'password' name = 'password' placeholder ="Password"  autoComplete= 'off' onChange ={onChange}/>
         </p>
         <p className = "clearfix">
-        <button className = 'submitBtn' type ="submit">Sumbit</button>
+        <button className = 'submitBtn'>Sign In</button>
+        <button className = 'signUp' onClick={signUp}>Sign Up</button>
         </p>
       </form>
+
+      </div>
     )
     }
 

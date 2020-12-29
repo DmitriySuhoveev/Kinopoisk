@@ -4,7 +4,6 @@ import Autorization from './Components/Autorization/Autorization';
 import AddMovie from './Components/MainPage/AddMovie/AddMovie';
 import TicketOrder from './Components/MainPage/TicketOrder/TicketOrder';
 import MovieSearch from './Components/MainPage/MovieSearch/MovieSearch';
-import {MovieProvider} from './Components/MainPage/MovieContext/MovieContext';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import './App.css';
 
@@ -14,7 +13,6 @@ function App() {
   
   return (
     <Router>
-    <MovieProvider>
       <div>
         <Switch>
           <Route path = '/' exact = {true} component = {Autorization}/>
@@ -25,7 +23,6 @@ function App() {
           </Route>
         </Switch> 
       </div>
-    </MovieProvider>
     </Router>
   );
 }

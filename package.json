@@ -8,6 +8,7 @@
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
     "@wojtekmaj/react-daterange-picker": "^3.0.0",
+    "firebase": "^8.2.1",
     "react": "^16.13.1",
     "react-calendar": "^3.2.1",
     "react-dom": "^16.13.1",
