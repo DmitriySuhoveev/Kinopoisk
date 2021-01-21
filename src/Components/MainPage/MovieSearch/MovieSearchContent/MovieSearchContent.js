@@ -1,20 +1,21 @@
 import React from 'react'
-import './MovieSearchContent.css'
-const MovieSearchContent = ({Country, Actors, Plot, Poster, Year, Genre, Awards, Runtime}) =>{
+import Card from 'react-bootstrap/Card';
+import CardDeck from 'react-bootstrap/CardDeck';
+import Badge from 'react-bootstrap/Badge'
+import './MovieSearchContent.css';
+
+const MovieSearchContent = ({Poster, Title, Type, Year}) =>{
 
     return(
-        <div className = "searchContentDiv">
-            <div className = "picDiv"><img src = {Poster} alt = ''/></div>
-            <ul className = "searchContentUl">
-                <li>Год производства: {Year}</li>
-                <li>Страна производства: {Country}</li>
-                <li>Жанр: {Genre}</li>
-                <li>Главные актёры: {Actors}</li>
-                <li>Награды и номинации: {Awards}</li>
-                <li>Время: {Runtime}</li>
-                { <li>Сюжет: {Plot}</li>}
-            </ul>
-        </div>
+    <CardDeck className = 'cardDeck'>
+        <Card className = 'card'>
+            <Card.Img className='cardImg' src={Poster} alt ={Title} />
+            <Card.Body className = 'cardBody'>
+                <p className ='cardTitle'><Badge variant="light">{Title}</Badge></p>
+                <p className ='cardType'><Badge variant="warning">{Type}</Badge></p>
+            </Card.Body>
+        </Card>
+    </CardDeck>
     )
 }
 export default MovieSearchContent

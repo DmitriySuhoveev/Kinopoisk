@@ -1,31 +1,30 @@
-.searchContentDiv{
+p{
+    margin: 0;
+}
+
+.card{
+    width: inherit;
+    height: inherit;
+}
+
+.cardImg{
+    width: inherit -10px;
+    height: 300px;
+}
+
+.cardBody{
+    padding: 1rem;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.MovieSearchSearchBarFilms{
     display: flex;
-
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
-.picDiv{
-    border: 0.7rem solid black;
-    width: 300px;
-    height: 450px;
-    margin: 40px 0  0 40px;
-    float: left;
-}
-
-img{
-    width: 300px;
-    height: 450px;
-}
-
-.searchContentUl{
-    padding: 20px;
-    width: 50%;
-    margin-left: 10px;
-    text-align: left;
-    font-family: Trebuchet MS, sans-serif;
-    text-decoration: inherit;
-}
-
-li{
-    margin: 5px;
+.badge{
+    white-space: pre-wrap;
 }
 

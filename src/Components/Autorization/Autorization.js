@@ -56,7 +56,7 @@ const Autorization = () =>{
       }
   
     return(
-    <div>
+    <div className='AuthorizationDiv'>
       <form className = "form-3" onSubmit = {onSumbit}>
       <p className = "clearfix">
         <label htmlFor = 'email'>Email:</label>
@@ -71,7 +71,6 @@ const Autorization = () =>{
         <button className = 'signUp' onClick={signUp}>Sign Up</button>
         </p>
       </form>
-
       </div>
     )
     }

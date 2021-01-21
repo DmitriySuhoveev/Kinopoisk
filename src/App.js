@@ -13,7 +13,7 @@ function App() {
   
   return (
     <Router>
-      <div>
+      <div className='AppRootDiv'>
         <Switch>
           <Route path = '/' exact = {true} component = {Autorization}/>
           <Route path = '/TicketOrder' component = {TicketOrder}/>

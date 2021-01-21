@@ -1,0 +1,19 @@
+.NavDropdown{
+    line-height: 15px;
+    font-style: italic;
+}
+.bg-light{
+    background-color: darkmagenta!important;
+}
+
+.nav-link{
+    color:rgb(255, 182, 73)!important;
+}
+
+.navbar-brand{
+    color:rgb(30, 213, 164)!important;
+    font-weight: 800;
+    border: 2px solid black;
+    border-radius: 25%;
+    padding: 5px;
+}

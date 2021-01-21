@@ -1,0 +1,14 @@
+.MovieSearchSearchBarDiv{
+    margin-top: 10vh;
+}
+
+.input-group{
+    width: 50%;
+    margin:auto;
+}
+
+.card-deck{
+    width: 300px;
+    height: auto;
+    margin: 10px;
+}
