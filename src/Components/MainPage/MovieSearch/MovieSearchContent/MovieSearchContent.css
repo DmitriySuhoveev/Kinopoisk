@@ -5,17 +5,22 @@ p{
 .card{
     width: inherit;
     height: inherit;
+
 }
 
 .cardImg{
-    width: inherit -10px;
-    height: 300px;
+    height: 77%;
 }
 
 .cardBody{
-    padding: 1rem;
+    padding: 0px;
+    text-align: center;
     justify-content: space-around;
     flex-wrap: wrap;
+}
+
+.card-deck .card{
+    margin: 0px;
 }
 
 .MovieSearchSearchBarFilms{
@@ -28,3 +33,55 @@ p{
     white-space: pre-wrap;
 }
 
+/*Modal*/
+
+.modalBody{
+    display:flex;
+}
+
+.modalBodyContent{
+    display: block;
+    margin-left: 5%;
+}
+
+.modalBodyImg{
+    height: 100%;
+}
+
+.modalBodyContentTitle{
+    display:flex;
+    justify-content: space-between;
+    line-height: 3em;
+}
+
+.RatedRuntimeGenre{
+    display:flex;
+}
+
+.RatedRuntimeGenreValue{
+    border: 2px solid rgb(157, 157, 157);
+    border-radius: 10px;
+    background-color: rgb(247, 247, 247);
+    font-family: serif;
+    font-weight: 400;
+    margin-right: 2vh;
+    padding: 0.6vh;
+}
+
+.modalBodyContentimdbRating{
+    color: rgb(255, 182, 73);
+    font-weight: 800;
+    font-size: 3vh;
+    margin-right: 3vh;
+}
+
+.modalBodyContentActors{
+    font-size: 2vh;
+    margin-top: 2vh;
+}
+
+.modalBodyContentPlot{
+    margin-top: 2vh;
+    font-size: 2vh;
+    width: 80%;
+}

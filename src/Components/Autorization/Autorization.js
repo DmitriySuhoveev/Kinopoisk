@@ -31,12 +31,12 @@ const Autorization = () =>{
       e.preventDefault()
       fire.auth().createUserWithEmailAndPassword(data.email, data.password)
       .then((u) => {
-        console.log('Successfully Signed Up');
+        alert('Successfully Signed Up');
         dispatch(logOut());
         handleClick();
       })
       .catch((err) => {
-        console.log('Error: ' + err.toString());
+        alert('Error: ' + err.toString());
         dispatch(setUser())
       })
     }
@@ -45,12 +45,12 @@ const Autorization = () =>{
      e.preventDefault()
       fire.auth().signInWithEmailAndPassword(data.email, data.password)
       .then((u) => {
-        console.log('Successfully Logged In');
+        alert('Successfully Logged In');
         dispatch(logOut())
         handleClick();
       })
       .catch((err) => {
-        console.log('Error: ' + err.toString());
+        alert('Error: ' + err.toString());
         dispatch(setUser())
       })
       }

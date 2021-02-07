@@ -1,7 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import {movieAppend} from '../../../../Redux/Actions';
-import MovieSearchContent from '../MovieSearchContent/MovieSearchContent'
+import MovieSearchContent from '../MovieSearchContent/MovieSearchContent';
 import InputGroup from 'react-bootstrap/InputGroup';
 import FormControl from 'react-bootstrap/FormControl';
 import Button from 'react-bootstrap/Button';
@@ -9,8 +7,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './MovieSearchSearchBar.css';
 
 const MovieSearchSearchBar = () =>{
-    const moviesManage = useSelector(state => state.moviesManage);
-    const dispatch = useDispatch();
     const [title, setTitle] = useState('');
     const [films, setFilms] = useState([]);
     const API_KEY = 'f55568f9';
@@ -45,7 +41,7 @@ const MovieSearchSearchBar = () =>{
                     Poster = {film.Poster}
                     Title = {film.Title}
                     Type = {film.Type}
-                    Year = {film.Year}
+                    imdbID = {film.imdbID}
                 />
             ))}
             </div>
